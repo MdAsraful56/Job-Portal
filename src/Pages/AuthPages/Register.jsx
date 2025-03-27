@@ -5,6 +5,7 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import registerLOttieData from '../../assets/lottie/register Animation.json'
 import AuthContext from './../../Contexts/AuthContext/AuthContext';
+import { Link } from 'react-router';
 
 
 const Register = () => {
@@ -45,8 +46,8 @@ const Register = () => {
                 <button className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
                 <form onSubmit={handleRegistration} className="md:w-3/5 w-full flex flex-col gap-4 items-center justify-center iansui-font">
                     {/* <h2 className="text-2xl font-semibold">Create a Account</h2> */}
-                    <div class="flex items-center justify-center">
-                        <span className="">Or Continue With</span>
+                    <div className="flex items-center justify-center">
+                        <span className="text-sm">Or Continue With</span>
                     </div>
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></g></svg>
@@ -62,15 +63,16 @@ const Register = () => {
                     </label>
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></g></svg>
-                        <input type={showPassword ? 'text' : 'password'} name='password' required placeholder="Password" minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
+                        <input type={showPassword ? 'text' : 'password'} name='password' required placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
                         <button onClick={() => {setShowPassword(!showPassword)}} className="btn btn-xs absolute right-1 top-2" type="button">
                             {
                                 showPassword ?  <FaEye /> : <FaEyeSlash />
                             }
                         </button>
                     </label>
-                    <input type="submit" value="Register" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
+                    <input type="submit" value="Submit & Register" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
                 </form>
+                <h4 className="text-base">Already have an account?<Link to='/login' >Sign in</Link></h4>
             </div>
             <div className="">
                 <Lottie animationData={registerLOttieData} />
