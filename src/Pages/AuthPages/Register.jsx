@@ -1,6 +1,10 @@
+import Lottie from 'lottie-react';
 import React, { useState } from 'react';
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import registerLOttieData from '../../assets/lottie/register Animation.json'
+
 
 const Register = () => {
 
@@ -9,16 +13,30 @@ const Register = () => {
 
     const handleRegistration = (e) => {
         e.preventDefault()
-        console.log('Registration')
+        console.log('Registration');
+
+        const form = e.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photo, email, password);
+        form.reset();
     }
 
 
 
     return (
-        <div>
-            <div className="">
+        <div className='flex flex-col-reverse md:flex-row gap-4 items-center justify-center'>
+            <div className="w-full md:w-2/5 flex flex-col gap-4 items-center justify-center">
+                {/* <h1 className="text-4xl font-semibold">Welcome to Job Portal</h1> */}
+                <h2 className="text-2xl font-semibold">Create a Account</h2>
+                <button className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
                 <form onSubmit={handleRegistration} className="md:w-3/5 w-full flex flex-col gap-4 items-center justify-center iansui-font">
-                    <h2 className="text-2xl font-semibold">Create a Account</h2>
+                    {/* <h2 className="text-2xl font-semibold">Create a Account</h2> */}
+                    <div class="flex items-center justify-center">
+                        <span className="">Or Continue With</span>
+                    </div>
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></g></svg>
                         <input type="input" name='name' required placeholder="Name" pattern="[A-Za-z][A-Za-z0-9\-]*" title="Only letters, numbers or dash" />
@@ -43,7 +61,9 @@ const Register = () => {
                     <input type="submit" value="Register" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
                 </form>
             </div>
-            <div className=""></div>
+            <div className="">
+                <Lottie animationData={registerLOttieData} />
+            </div>
         </div>
     );
 };
