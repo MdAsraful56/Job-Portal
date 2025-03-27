@@ -4,6 +4,7 @@ import MainLayout from './Layout/MainLayout'
 import Home from './Pages/Home/Home'
 import Login from './Pages/AuthPages/Login'
 import Register from './Pages/AuthPages/Register'
+import AuthProvider from './Contexts/AuthContext/AuthProvider'
 
 
 
@@ -23,7 +24,9 @@ function App() {
 
   return (
     <>
+    <AuthProvider>
       <RouterProvider router={router} />
+    </AuthProvider>
     </>
   )
 }
