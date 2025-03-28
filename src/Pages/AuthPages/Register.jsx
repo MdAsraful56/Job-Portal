@@ -72,7 +72,7 @@ const Register = () => {
                     </label>
                     <input type="submit" value="Submit & Register" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
                 </form>
-                <h4 className="text-base">Already have an account?<Link to='/login' >Sign in</Link></h4>
+                <h4 className="text-base">Already have an account? <Link to='/login' >Sign in</Link></h4>
             </div>
             <div className="">
                 <Lottie animationData={registerLOttieData} />
