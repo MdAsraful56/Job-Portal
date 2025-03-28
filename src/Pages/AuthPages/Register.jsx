@@ -27,7 +27,7 @@ const Register = () => {
         form.reset();
 
 
-        createUser(email, password)
+        createUser(email, password, name)
             .then((result) => {
                 console.log(result.user);
             })

@@ -4,7 +4,16 @@ import AuthContext from '../Contexts/AuthContext/AuthContext';
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
+    console.log(user)
+
+
+
+    const navLink = <>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/about'>About</Link></li>
+            </>
+
 
     return (
         <div>
@@ -17,39 +26,37 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Item 1</a></li>
-                        <li>
-                        <a>Parent</a>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                        </li>
-                        <li><a>Item 3</a></li>
+                        {navLink}
                     </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">Job Portal</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                    <li><a>Item 1</a></li>
-                    <li>
-                        <details>
-                        <summary>Parent</summary>
-                        <ul className="p-2">
-                            <li><a>Submenu 1</a></li>
-                            <li><a>Submenu 2</a></li>
-                        </ul>
-                        </details>
-                    </li>
-                    <li><a>Item 3</a></li>
+                        {navLink}
                     </ul>
                 </div>
                 <div className="navbar-end">
                     {
                         user ? 
                             <>
-
+                                <div className="dropdown dropdown-end">
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                        <img
+                                            alt="Tailwind CSS Navbar component"
+                                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        </div>
+                                    </div>
+                                    <ul
+                                        tabIndex={0}
+                                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                                        <li><a className="justify-between">
+                                            {user?.displayName}
+                                        </a></li>
+                                        <button onClick={logout} className=''>Logout</button>
+                                    </ul>
+                                </div>
                             </> 
                             : 
                             <>
