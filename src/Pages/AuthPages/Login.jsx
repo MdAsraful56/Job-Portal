@@ -11,7 +11,7 @@ const Login = () => {
 
 
     const [showPassword, setShowPassword] = useState(false)
-    const { googleSignIn } = useContext(AuthContext);
+    const { googleSignIn, loginUser } = useContext(AuthContext);
 
 
     const handleLogin = (e) => {
@@ -22,7 +22,19 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        form.reset();
+
+
+        loginUser(email, password)
+            .then((result) => {
+                console.log(result.user);
+                // navigate('/')
+                form.reset();
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+
+        
     }
 
 
