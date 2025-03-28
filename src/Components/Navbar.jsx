@@ -8,6 +8,7 @@ import logoLottieData from '../assets/lottie/logo Animation.json';
 
 const Navbar = () => {
 
+
     const { user, logout } = useContext(AuthContext);
 
     const navLink = <>
