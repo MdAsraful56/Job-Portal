@@ -15,14 +15,14 @@ const Home = () => {
             <h3 className="text-2xl"></h3>
 
             <section className="">
-                <div className="flex flex-row items-center justify-between mt-52">
-                    <Lottie animationData={hiring01} loop={true} className="w-1/4 mx-auto" />
-                    <div className="">
-                        <h1 className="">We are <span className="text-4xl">Hiring</span></h1>
+                <div className="flex lg:flex-row flex-col items-center justify-between mt-52">
+                    <Lottie animationData={hiring01} loop={true} className="lg:w-1/6 w-full lg:h-auto h-52  mx-auto" />
+                    <div className="flex flex-row gap-5">
+                        <h1 className="flex flex-col">We are <span className="text-4xl ml-5">Hiring</span></h1>
                         <p className="">Let’s Work Together & Explore Opportunities</p>
-                        <button className="btn">Apply Now</button>
+                        <button className="btn btn-accent mt-10">Apply Now</button>
                     </div>
-                    <Lottie animationData={hiring02} loop={true} className="w-1/4 mx-auto" />
+                    <Lottie animationData={hiring02} loop={true} className="lg:w-1/6 w-full lg:h-auto h-52 mx-auto" />
                 </div>
             </section>
 
@@ -36,7 +36,7 @@ const Home = () => {
 
             <section className=" my-52">
                 <div className="flex lg:flex-row  flex-col sm:flex-col items-center">
-                    <div className="lg:w-1/2 w-full lg:mb-0 mb-8">
+                    <div className="lg:w-1/2 w-full lg:mb-0 mb-8 rounded-2xl shadow-lg">
                         <img src={Img01} alt="" className="w-full h-80 object-contain" />
                     </div>
                     <div className="lg:w-1/2 w-full flex flex-col space-y-4">
