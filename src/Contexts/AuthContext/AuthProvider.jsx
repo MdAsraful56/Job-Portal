@@ -9,14 +9,15 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
 
-    const createUser = (email, password, name) => {
+    const createUser = (email, password, name, photo) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 return updateProfile(userCredential.user, {
                     displayName: name,
+                    photoURL: photo
                 }).then(() => {
-                    setUser({ ...userCredential.user, displayName: name });
+                    setUser({ ...userCredential.user, displayName: name, photoURL: photo });
                 });
             })
             .catch((error) => console.error(error));

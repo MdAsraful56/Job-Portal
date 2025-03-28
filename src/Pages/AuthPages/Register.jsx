@@ -11,7 +11,7 @@ import { Link } from 'react-router';
 const Register = () => {
 
     const [showPassword, setShowPassword] = useState(false)
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleSignIn } = useContext(AuthContext);
 
 
     const handleRegistration = (e) => {
@@ -27,7 +27,7 @@ const Register = () => {
         form.reset();
 
 
-        createUser(email, password, name)
+        createUser(email, password, name, photo)
             .then((result) => {
                 console.log(result.user);
             })
@@ -43,7 +43,7 @@ const Register = () => {
             <div className="w-full md:w-2/5 flex flex-col gap-4 items-center justify-center">
                 {/* <h1 className="text-4xl font-semibold">Welcome to Job Portal</h1> */}
                 <h2 className="text-2xl font-semibold">Create a Account</h2>
-                <button className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
+                <button onClick={googleSignIn} className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
                 <form onSubmit={handleRegistration} className="md:w-3/5 w-full flex flex-col gap-4 items-center justify-center iansui-font">
                     {/* <h2 className="text-2xl font-semibold">Create a Account</h2> */}
                     <div className="flex items-center justify-center">
