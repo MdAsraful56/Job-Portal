@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import AuthContext from '../Contexts/AuthContext/AuthContext';
 import userLogo from '../assets/user.png';
+import Lottie from 'lottie-react';
+import logoLottieData from '../assets/lottie/logo Animation.json';
 
 
 const Navbar = () => {
@@ -28,7 +30,11 @@ const Navbar = () => {
                         {navLink}
                     </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Job Portal</a>
+                    <a className="btn btn-ghost text-xl">
+                        <div className="w-6">
+                            <Lottie animationData={logoLottieData} />
+                        </div>
+                        Job Portal</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
