@@ -62,7 +62,7 @@ const Login = () => {
                             }
                         </button>
                     </label>
-                    <input type="submit" value="Submit & Register" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
+                    <input type="submit" value="Submit & Login" className='btn btn-accent font-semibold text-sm rounded-lg hover:bg-transparent hover:border-2 hover:border-[#a5357c]'/>
                 </form>
                 <h4 className="text-base">Don't have an account? <Link to='/register' >Register</Link></h4>
             </div>
