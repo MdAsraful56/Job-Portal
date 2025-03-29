@@ -15,6 +15,15 @@ const Home = () => {
         <div>
             <Banner />
 
+            <section className="mt-52">
+                <div className="text-center">
+                    <h1 className="text-2xl font-bold">Browse by category</h1>
+                    <p className="text-sm">Find the job that’s perfect for you. about 800+ new jobs everyday.</p>
+                </div>
+            </section>
+
+
+
             <section className="">
                 <div className="flex lg:flex-row flex-col items-center justify-between mt-52">
                     <Lottie animationData={hiring01} loop={true} className="lg:w-1/6 w-full lg:h-auto h-52  mx-auto" />
