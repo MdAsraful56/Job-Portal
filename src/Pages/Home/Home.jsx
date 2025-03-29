@@ -4,6 +4,7 @@ import Img01 from '../../assets/Img-01.png'
 import hiring01 from '../../assets/lottie/hiring2 Animation.json'
 import hiring02 from '../../assets/lottie/hiring Animation.json'
 import Lottie from 'lottie-react';
+import Banner from './Banner';
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
 
     return (
         <div>
-            <h3 className="text-2xl"></h3>
+            <Banner />
 
             <section className="">
                 <div className="flex lg:flex-row flex-col items-center justify-between mt-52">
