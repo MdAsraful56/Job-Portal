@@ -5,6 +5,9 @@ import hiring01 from '../../assets/lottie/hiring2 Animation.json'
 import hiring02 from '../../assets/lottie/hiring Animation.json'
 import Lottie from 'lottie-react';
 import Banner from './Banner';
+import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+// import arrorwLottie from '../../assets/lottie/arrow Animation.json'
+// import { FaArrowRight } from 'react-icons/fa';
 
 const Home = () => {
 
@@ -20,6 +23,7 @@ const Home = () => {
                     <h1 className="text-2xl font-bold">Browse by category</h1>
                     <p className="text-sm">Find the job that’s perfect for you. about 800+ new jobs everyday.</p>
                 </div>
+
             </section>
 
 
@@ -30,7 +34,7 @@ const Home = () => {
                     <div className="flex flex-row gap-5">
                         <h1 className="flex flex-col">We are <span className="text-4xl ml-5">Hiring</span></h1>
                         <p className="">Let’s Work Together & Explore Opportunities</p>
-                        <button className="btn btn-accent mt-10">Apply Now</button>
+                        <button className="btn btn-accent mt-10"><IoMdCheckmarkCircleOutline size={20} /> Apply Now</button>
                     </div>
                     <Lottie animationData={hiring02} loop={true} className="lg:w-1/6 w-full lg:h-auto h-52 mx-auto" />
                 </div>
@@ -45,16 +49,16 @@ const Home = () => {
             </section>
 
             <section className=" my-52">
-                <div className="flex lg:flex-row  flex-col sm:flex-col items-center">
+                <div className="flex lg:flex-row  flex-col sm:flex-col items-center gap-10">
                     <div className="lg:w-1/2 w-full lg:mb-0 mb-8 rounded-2xl shadow-lg">
-                        <img src={Img01} alt="" className="w-full h-80 object-contain" />
+                        <img src={Img01} alt="" className="w-full h-80 object-cover rounded-2xl" />
                     </div>
                     <div className="lg:w-1/2 w-full flex flex-col space-y-4">
                         <h3 className="text-2xl font-semibold">Millions Of Jobs.</h3>
                         <h1 className="text-5xl font-bold">Find The One That’s <span className="text-blue-400">Right</span> For You</h1>
                         <p className="">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide. The right job is out there</p>
                         <div className="flex items-center space-x-4">
-                            <button className="btn btn-primary">Apply Now</button>
+                            <button className="btn btn-primary"><IoMdCheckmarkCircleOutline size={20} /> Apply Now</button>
                             <a className="underline">Learn More</a>
                         </div>
                     </div>
