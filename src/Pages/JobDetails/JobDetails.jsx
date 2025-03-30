@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import mainImg from '../../assets/details.png'
 import { PiShoppingBagBold } from 'react-icons/pi';
 import { IoMdCheckmarkCircleOutline, IoMdTime } from 'react-icons/io';
@@ -14,7 +14,7 @@ const JobDetails = () => {
     const jobData = useLoaderData();
     // console.log(jobData)
 
-    const { title, jobType, applicationDeadline, company, location, salaryRange, category, responsibilities } = jobData;
+    const { _id, title, jobType, applicationDeadline, company, location, salaryRange, category, responsibilities } = jobData;
 
     return (
         <div className='mb-40'>
@@ -32,9 +32,9 @@ const JobDetails = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="">
+                    <Link to={`/jobApply/${_id}`} className="">
                         <button className="btn btn-primary hover:bg-transparent hover:text-black"><IoMdCheckmarkCircleOutline size={20} /> Apply Now</button>
-                    </div>
+                    </Link>
                 </div>
                 <hr className="my-5 text-gray-500 space-y-5" />
                 <div className="border-[1px] border-gray-400 p-5 rounded-base">
@@ -64,9 +64,9 @@ const JobDetails = () => {
                     <li>Creating and applying established design principles and interaction patterns</li>
                     <li>Aligning or influencing design thinking with teams working in other geographies</li>
                 </ul>
-                <div className="mt-6">
+                <Link to={`/jobApply/${_id}`} className="mt-6">
                     <button className="btn btn-primary hover:bg-transparent hover:text-black"><IoMdCheckmarkCircleOutline size={20} /> Apply Now</button>
-                </div>
+                </Link>
             </div>
         </div>
     );

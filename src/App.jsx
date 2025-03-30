@@ -8,6 +8,7 @@ import AuthProvider from './Contexts/AuthContext/AuthProvider'
 import Blog from './Pages/Blog/Blog'
 import JobDetails from './Pages/JobDetails/JobDetails'
 import PrivateRoute from './Route/PrivateRoute'
+import JobApply from './Pages/JobApply/JobApply'
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Route path='/' element={ <MainLayout/> }>
         <Route index element={ <Home/> } />
         <Route path='/jobs/:id' element={ <PrivateRoute><JobDetails /></PrivateRoute> } loader={ ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)  } />
+        <Route path='/jobApply/:id' element={ <PrivateRoute><JobApply /></PrivateRoute> } />
         <Route path='blog' element={ <Blog /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />
