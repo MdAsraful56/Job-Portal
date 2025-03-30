@@ -10,8 +10,8 @@ const HotJobsCard = ({job}) => {
 
     return (
         <div className=''>
-            <div className="hover:shadow-lg hovrer:border-8 border-blue-500">
-                <div className="card bg-base-100 shadow-sm">
+            <div className="hover:shadow-lg hovrer:border-8 border-blue-500 ">
+                <div className="card bg-base-100 shadow-sm h-[400px] ">
                     <div className="flex flex-row gap-3 items-center p-2">
                         <figure>
                             <img src={company_logo} className='w-16 h-16' alt="company logo Img" />
@@ -40,7 +40,7 @@ const HotJobsCard = ({job}) => {
                                 requirements.map((req, index) => <li key={index} className="btn hover:text-blue-500">{req}</li>)
                             }
                         </div>
-                        <div className="card-actions justify-between items-center mt-5">
+                        <div className="card-actions justify-between items-center mt-auto">
                             <div className="flex flex-row gap-5 items-center">
                                 <p className="flex items-center ">Salary :  <FaDollarSign /> {salaryRange.min} - {salaryRange.max} </p>
                             </div>

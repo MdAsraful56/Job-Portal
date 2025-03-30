@@ -5,7 +5,7 @@ import Footer from '../Components/Footer';
 
 const MainLayout = () => {
     return (
-        <div className="">
+        <div className=" josefin-sans-font ">
             <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
                 <Navbar />
                 <Outlet />
