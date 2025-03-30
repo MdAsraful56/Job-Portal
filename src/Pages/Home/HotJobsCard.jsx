@@ -29,10 +29,10 @@ const HotJobsCard = ({job}) => {
                         <h2 className="card-title text-xl">{title}</h2>
                         <div className="flex flex-row gap-5 items-center">
                             <div className="flex items-center gap-0.5">
-                                <PiShoppingBagBold /> <span>{jobType}</span>
+                                <PiShoppingBagBold size={16} /> <span>{jobType}</span>
                             </div>
                             <div className="flex items-center gap-0.5">
-                                <IoMdTime /> <span>{applicationDeadline}</span>
+                                <IoMdTime size={16} /> <span>{applicationDeadline}</span>
                             </div>
                         </div>
                         <p className='flex-grow'>{description}</p>
