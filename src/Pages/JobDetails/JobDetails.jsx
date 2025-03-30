@@ -14,7 +14,7 @@ const JobDetails = () => {
     const jobData = useLoaderData();
     // console.log(jobData)
 
-    const { title, jobType, applicationDeadline, company, location, salaryRange, category, } = jobData;
+    const { title, jobType, applicationDeadline, company, location, salaryRange, category, responsibilities } = jobData;
 
     return (
         <div className='mb-40'>
@@ -37,7 +37,7 @@ const JobDetails = () => {
                     </div>
                 </div>
                 <hr className="my-5 text-gray-500 space-y-5" />
-                <div className="border-[1px] border-gray-400 p-5 rounded-2xl">
+                <div className="border-[1px] border-gray-400 p-5 rounded-base">
                     <h2 className="text-xl">Employment Information</h2>
                     <hr className="text-gray-400 my-3" />
                     <div className="grid grid-cols-2 space-y-3 ">
@@ -48,6 +48,24 @@ const JobDetails = () => {
                         <div className="flex flex-row gap-2 items-center text-gray-700"><IoTimeOutline /> Deadline :  <span className="text-black">{applicationDeadline}</span> </div>
                         <div className="flex flex-row gap-2 items-center text-gray-700"><LuMapPinned /> Location :  <span className="text-black">{location}</span> </div>
                     </div>
+                </div>
+                <h2 className="text-2xl mt-5">Welcome to Job Portal Team</h2>
+                <p className="mt-3">The Job Portal Design team has a vision to establish a trusted platform that enables productive and healthy enterprises in a world of digital and remote everything, constantly changing work patterns and norms, and the need for organizational resiliency. </p>
+                <p className='mt-5'> The ideal candidate will have strong creative skills and a portfolio of work which demonstrates their passion for illustrative design and typography. This candidate will have experiences in working with numerous different design platforms such as digital and print forms.</p>
+                <div className="">
+                    <h2 className="text-2xl mt-5">Responsibilities</h2>
+                    {
+                        responsibilities.map((res, index) => <li key={index}>{res}</li> )
+                    }
+                </div>
+                <h2 className="text-2xl mt-5">Preferred Experience</h2>
+                <ul>
+                    <li>Designing user experiences for enterprise software / services</li>
+                    <li>Creating and applying established design principles and interaction patterns</li>
+                    <li>Aligning or influencing design thinking with teams working in other geographies</li>
+                </ul>
+                <div className="mt-6">
+                    <button className="btn btn-primary hover:bg-transparent hover:text-black"><IoMdCheckmarkCircleOutline size={20} /> Apply Now</button>
                 </div>
             </div>
         </div>
