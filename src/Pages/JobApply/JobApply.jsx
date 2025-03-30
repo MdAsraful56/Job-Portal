@@ -4,7 +4,7 @@ import jobApplyLottieData from '../../assets/lottie/jobApply Animation.json';
 import Lottie from 'lottie-react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import { useParams } from 'react-router';
-import axios from 'axios';
+// import axios from 'axios';
 
 const JobApply = () => {
 
@@ -33,13 +33,15 @@ const JobApply = () => {
             userLinkedin: userLinkedin
         }
 
-        axios.post('http://localhost:3000/jobApplications', jobApplication)
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+        fetch('http://localhost:3000/jobApplications', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(jobApplication)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
 
     }
 
