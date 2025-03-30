@@ -40,8 +40,6 @@ const Home = () => {
                 </div>
             </section> */}
 
-
-
             <section className="">
                 <div className="flex lg:flex-row flex-col items-center justify-between mt-52">
                     <Lottie animationData={hiring01} loop={true} className="lg:w-1/6 w-full lg:h-auto h-40  mx-auto" />
@@ -53,7 +51,6 @@ const Home = () => {
                     <Lottie animationData={hiring02} loop={true} className="lg:w-1/6 w-full lg:h-auto h-40 mx-auto" />
                 </div>
             </section>
-
 
             <section className="mt-10">
                 <div className="text-center">
@@ -95,11 +92,12 @@ const Home = () => {
                 <Stats />
             </section>
 
-            <section className="">
-                <div className="text-center mt-52 mb-52">
+            <section className="mt-16">
+                <div className="text-center mb-52">
                     <h2 className="text-4xl">News and Blog</h2>
                     <p className="">Read our latest news and blogs</p>
                 </div>
+                
             </section>
         </div>
     );
