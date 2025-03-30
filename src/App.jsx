@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home'
 import Login from './Pages/AuthPages/Login'
 import Register from './Pages/AuthPages/Register'
 import AuthProvider from './Contexts/AuthContext/AuthProvider'
+import Blog from './Pages/Blog/Blog'
 
 
 
@@ -15,6 +16,7 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={ <MainLayout/> }>
         <Route index element={ <Home/> } />
+        <Route path='blog' element={ <Blog /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />
       </Route>

@@ -10,7 +10,7 @@ const HotJobsCard = ({job}) => {
 
     return (
         <div className=''>
-            <div className="hover:shadow-lg hovrer:border-8 border-blue-500 ">
+            <div className="hover:shadow-lg hovrer:border-8 border-blue-500 hover:scale-105 hover:duration-300 ">
                 <div className="card bg-base-100 shadow-sm h-[400px] ">
                     <div className="flex flex-row gap-3 items-center p-2">
                         <figure>
@@ -25,7 +25,7 @@ const HotJobsCard = ({job}) => {
                         </div>
                     </div>
                     <div className="card-body">
-                        <h2 className="card-title">{title}</h2>
+                        <h2 className="card-title text-xl">{title}</h2>
                         <div className="flex flex-row gap-5 items-center">
                             <div className="flex items-center gap-0.5">
                                 <PiShoppingBagBold /> <span>{jobType}</span>
@@ -42,7 +42,7 @@ const HotJobsCard = ({job}) => {
                         </div>
                         <div className="card-actions justify-between items-center mt-auto">
                             <div className="flex flex-row gap-5 items-center">
-                                <p className="flex items-center ">Salary :  <FaDollarSign /> {salaryRange.min} - {salaryRange.max} </p>
+                                <p className="flex items-center text-base ">Salary :  <FaDollarSign /> {salaryRange.min} - {salaryRange.max} </p>
                             </div>
                             <button className="btn btn-primary hover:bg-transparent hover:text-black ">Apply Now</button>
                         </div>
