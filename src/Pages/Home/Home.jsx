@@ -6,6 +6,7 @@ import hiring02 from '../../assets/lottie/hiring Animation.json'
 import Lottie from 'lottie-react';
 import Banner from './Banner';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import HotJobs from './HotJobs';
 // import arrorwLottie from '../../assets/lottie/arrow Animation.json'
 // import { FaArrowRight } from 'react-icons/fa';
 
@@ -39,6 +40,8 @@ const Home = () => {
                     <Lottie animationData={hiring02} loop={true} className="lg:w-1/6 w-full lg:h-auto h-52 mx-auto" />
                 </div>
             </section>
+
+            <HotJobs />
 
 
             <section className="mt-52">
