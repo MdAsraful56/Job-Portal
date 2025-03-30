@@ -5,14 +5,24 @@ import { FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import loginLOttieData from '../../assets/lottie/login Animation.json'
 import AuthContext from './../../Contexts/AuthContext/AuthContext';
-import { Link } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false)
     const { googleSignIn, loginUser } = useContext(AuthContext);
 
+    const from = location?.state || '/';
+    const googlenavigate = async () => {
+        try {
+            await googleSignIn(); // Wait for sign-in to complete
+            navigate(from); // Navigate after sign-in
+        } catch (error) {
+            console.error("Google sign-in failed:", error);
+        }
+    };
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -27,14 +37,12 @@ const Login = () => {
         loginUser(email, password)
             .then((result) => {
                 console.log(result.user);
-                // navigate('/')
+                navigate(from);
                 form.reset();
             })
             .catch((error) => {
                 console.log(error.message);
             })
-
-        
     }
 
 
@@ -43,7 +51,7 @@ const Login = () => {
             <div className="w-full md:w-2/5 flex flex-col gap-4 items-center justify-center">
                 {/* <h1 className="text-4xl font-semibold">Welcome to Job Portal</h1> */}
                 <h2 className="text-2xl font-semibold">Login a Account</h2>
-                <button onClick={googleSignIn} className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
+                <button onClick={ () => { googlenavigate(); } } className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
                 <form onSubmit={handleLogin} className="md:w-3/5 w-full flex flex-col gap-4 items-center justify-center iansui-font">
                     {/* <h2 className="text-2xl font-semibold">Create a Account</h2> */}
                     <div className="flex items-center justify-center">

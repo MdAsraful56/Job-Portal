@@ -37,7 +37,10 @@ const AuthProvider = ({ children }) => {
     const googleSignIn = () => {
         setLoading(true);
         return signInWithPopup(auth, new GoogleAuthProvider())
-            .then((result) => setUser(result.user))
+            .then((result) => {
+                setUser(result.user);
+                
+            })
             .catch(console.error)
             .finally(() => setLoading(false));
     };

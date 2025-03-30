@@ -7,6 +7,7 @@ import Register from './Pages/AuthPages/Register'
 import AuthProvider from './Contexts/AuthContext/AuthProvider'
 import Blog from './Pages/Blog/Blog'
 import JobDetails from './Pages/JobDetails/JobDetails'
+import PrivateRoute from './Route/PrivateRoute'
 
 
 
@@ -17,7 +18,7 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={ <MainLayout/> }>
         <Route index element={ <Home/> } />
-        <Route path='/jobs/:id' element={ <JobDetails /> } loader={ ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)  } />
+        <Route path='/jobs/:id' element={ <PrivateRoute><JobDetails /></PrivateRoute> } loader={ ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)  } />
         <Route path='blog' element={ <Blog /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />
