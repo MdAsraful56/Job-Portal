@@ -15,7 +15,7 @@ const Company = () => {
 
     return (
         <div>
-            <div className="">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
                 {
                     companys.map(company => <CompanyCard key={company._id} company={company} /> )
                 }

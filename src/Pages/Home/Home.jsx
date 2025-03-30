@@ -81,7 +81,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="my-52">
+            <section className="mt-20">
                 <div className="text-center ">
                     <h2 className="text-4xl">Top Recruiters & Companies</h2>
                     <p className="text-lg">We have over 1,000+ recruiters</p>
@@ -91,8 +91,7 @@ const Home = () => {
                 </div>
             </section>
 
-
-            <section className="">
+            <section className="mt-10">
                 <Stats />
             </section>
 
