@@ -15,13 +15,13 @@ const HotJobs = () => {
 
 
     return (
-        <di className="">
+        <div className="">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-12">
                 {
                     jobs.map(job => <HotJobsCard key={job._id} job={job} />)
                 }
             </div>
-        </di>
+        </div>
     );
 };
 
