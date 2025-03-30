@@ -6,6 +6,7 @@ import Login from './Pages/AuthPages/Login'
 import Register from './Pages/AuthPages/Register'
 import AuthProvider from './Contexts/AuthContext/AuthProvider'
 import Blog from './Pages/Blog/Blog'
+import JobDetails from './Pages/JobDetails/JobDetails'
 
 
 
@@ -16,6 +17,7 @@ function App() {
     createRoutesFromElements(
       <Route path='/' element={ <MainLayout/> }>
         <Route index element={ <Home/> } />
+        <Route path='/jobs/:id' element={ <JobDetails /> } loader={ ({params}) => fetch(`http://localhost:3000/jobs/${params.id}`)  } />
         <Route path='blog' element={ <Blog /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />

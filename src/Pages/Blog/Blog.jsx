@@ -4,6 +4,9 @@ import AddBlog from './AddBlog';
 const Blog = () => {
     return (
         <div>
+
+
+
             <AddBlog />
         </div>
     );

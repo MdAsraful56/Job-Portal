@@ -3,6 +3,7 @@ import { FaDollarSign } from 'react-icons/fa';
 import { IoMdTime } from 'react-icons/io';
 import { IoLocationOutline } from 'react-icons/io5';
 import { PiShoppingBagBold, PiShoppingBagOpenFill } from 'react-icons/pi';
+import { Link } from 'react-router';
 
 const HotJobsCard = ({job}) => {
 
@@ -44,7 +45,9 @@ const HotJobsCard = ({job}) => {
                             <div className="flex flex-row gap-5 items-center">
                                 <p className="flex items-center text-base ">Salary :  <FaDollarSign /> {salaryRange.min} - {salaryRange.max} </p>
                             </div>
-                            <button className="btn btn-primary hover:bg-transparent hover:text-black ">Apply Now</button>
+                            <Link to={`/jobs/${job._id}`} >
+                                <button className="btn btn-primary hover:bg-transparent hover:text-black ">Apply Now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
