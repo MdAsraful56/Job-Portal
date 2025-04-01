@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../../Contexts/AuthContext/AuthContext';
+// import axios from 'axios';
+import { MdDeleteOutline } from "react-icons/md";
+
 
 const MyApplications = () => {
 
@@ -12,7 +15,27 @@ const MyApplications = () => {
             .then(data => setMyJobs(data))
     } ,[user.email])
 
-    console.log(myJobs);
+    // console.log(myJobs);
+
+
+    const deleteItem = async (id) => {
+        try {
+            // await axios.delete(`http://localhost:3000/jobApplications/${id}`);
+            const response = await fetch(`http://localhost:3000/jobApplications/${id}`, {
+                method: "DELETE",
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to delete item: ${response.statusText}`);
+            }
+
+            setMyJobs(myJobs.filter(myJobs => myJobs._id !== id)); // Remove item from UI
+        } catch (error) {
+            console.error("Error deleting item:", error);
+        }
+    };
+
+
 
 
     return (
@@ -31,7 +54,7 @@ const MyApplications = () => {
                         <th></th>
                         <th>Name</th>
                         <th>Job</th>
-                        <th>Details</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -63,7 +86,7 @@ const MyApplications = () => {
                                 <span className="badge badge-ghost badge-sm">{job.jobType}</span>
                                 </td>
                                 <th>
-                                <button className="btn btn-ghost btn-xs">details</button>
+                                <button onClick={() => {deleteItem(job._id)}} className="btn btn-ghost btn-xs"> <MdDeleteOutline size={25} color='red' /> </button>
                                 </th>
                             </tr> )
                         }
