@@ -12,17 +12,17 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false)
-    const { googleSignIn, loginUser } = useContext(AuthContext);
+    const { loginUser } = useContext(AuthContext);
 
     const from = location?.state || '/';
-    const googlenavigate = async () => {
-        try {
-            await googleSignIn(); // Wait for sign-in to complete
-            navigate(from); // Navigate after sign-in
-        } catch (error) {
-            console.error("Google sign-in failed:", error);
-        }
-    };
+    // const googlenavigate = async () => {
+    //     try {
+    //         await googleSignIn(); // Wait for sign-in to complete
+    //         navigate(from); // Navigate after sign-in
+    //     } catch (error) {
+    //         console.error("Google sign-in failed:", error);
+    //     }
+    // };
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -51,12 +51,12 @@ const Login = () => {
             <div className="w-full md:w-2/5 flex flex-col gap-4 items-center justify-center">
                 {/* <h1 className="text-4xl font-semibold">Welcome to Job Portal</h1> */}
                 <h2 className="text-2xl font-semibold">Login a Account</h2>
-                <button onClick={ () => { googlenavigate(); } } className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button>
+                {/* <button onClick={ () => { googlenavigate(); } } className="btn"> <FcGoogle size={20}/> <span className="">Sing up with Google</span> </button> */}
                 <form onSubmit={handleLogin} className="md:w-3/5 w-full flex flex-col gap-4 items-center justify-center iansui-font">
                     {/* <h2 className="text-2xl font-semibold">Create a Account</h2> */}
-                    <div className="flex items-center justify-center">
+                    {/* <div className="flex items-center justify-center">
                         <span className="text-sm">Or Continue With</span>
-                    </div>
+                    </div> */}
                     <label className="input validator">
                         <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2.5" fill="none" stroke="currentColor"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></g></svg>
                         <input type="email" name='email' placeholder="mail@site.com" required/>

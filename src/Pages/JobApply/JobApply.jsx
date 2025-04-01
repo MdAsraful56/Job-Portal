@@ -3,12 +3,13 @@ import AuthContext from '../../Contexts/AuthContext/AuthContext';
 import jobApplyLottieData from '../../assets/lottie/jobApply Animation.json';
 import Lottie from 'lottie-react';
 import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
-import { useParams } from 'react-router';
+import { useParams, useNavigate } from 'react-router';
 // import axios from 'axios';
 
 const JobApply = () => {
 
     const {id} = useParams();
+    const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
     const {displayName, email} = user;
@@ -41,7 +42,11 @@ const JobApply = () => {
             body: JSON.stringify(jobApplication)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data)
+
+                navigate('/jobApplication');
+            })
 
     }
 
