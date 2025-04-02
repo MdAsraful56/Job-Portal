@@ -15,7 +15,7 @@ const Footer = () => {
                         <Lottie animationData={logoLottieData} />
                     </div>
                     <p>
-                    Jobs Portal Ltd.
+                        <span className="text-2xl">Jobs Portal Ltd.</span>
                     <br />
                     Providing reliable tech since 1992
                     </p>
