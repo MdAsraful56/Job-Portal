@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from 'react';
 import CountUp from 'react-countup';
 import Img01 from '../../assets/Img-01.png'
 // import Img02 from '../../assets/Img-02.png'
@@ -11,6 +12,7 @@ import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
 import HotJobs from './HotJobs';
 import Stats from './Stats';
 import Company from './Company';
+// import Blog from '../Blog/Blog';
 // import arrorwLottie from '../../assets/lottie/arrow Animation.json'
 // import { FaArrowRight } from 'react-icons/fa';
 // import { motion } from "motion/react"
@@ -18,6 +20,15 @@ import Company from './Company';
 
 const Home = () => {
 
+    const [blogData, setBlogData] = useState([]);
+    
+    useEffect( () => {
+        fetch('http://localhost:3000/blogs')
+            .then(res => res.json())
+            .then(data => setBlogData(data))
+    } ,[])
+
+    // console.log(blogData)
 
 
     return (
@@ -92,12 +103,44 @@ const Home = () => {
                 <Stats />
             </section>
 
-            <section className="mt-16">
-                <div className="text-center mb-52">
+            <section className="my-16 ">
+                <div className="text-center mb-10">
                     <h2 className="text-4xl">News and Blog</h2>
                     <p className="">Read our latest news and blogs</p>
                 </div>
-                
+                <div className="">
+                    {/* <Blog /> */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 ">
+                        {
+                            blogData.map( (blog) => {
+                                return (
+                                    <div key={blog._id} className="card w-96 bg-base-100 shadow-xl mx-auto my-5 hover:shadow-lg hovrer:border-8 border-blue-500 hover:scale-105 hover:duration-300 ">
+                                        <figure><img src={blog.image} alt="Shoes" /></figure>
+                                        <div className="card-body">
+                                            <h2 className="card-title">{blog.title}</h2>
+                                            <p>{blog.description}</p>
+                                            <div className="card-actions justify-between items-center">
+                                                <div className="flex flex-row items-center gap-2">
+                                                    <div className="avatar">
+                                                        <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                                            <img src={blog.authorImage} alt="Author" />
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex flex-col ">
+                                                        <p className='ms-2'>{blog.author}</p>
+                                                        <p className='ms-2'>Post: {blog.date}</p>
+                                                    </div>
+            
+                                                </div>
+                                                <h3 className="">{blog.reading_time}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                </div>
             </section>
         </div>
     );

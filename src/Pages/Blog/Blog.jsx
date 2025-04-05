@@ -7,7 +7,6 @@ const Blog = () => {
     const blogData = useLoaderData();
     // console.log(data);
 
-    
 
 
     return (
