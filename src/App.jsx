@@ -11,6 +11,7 @@ import PrivateRoute from './Route/PrivateRoute'
 import JobApply from './Pages/JobApply/JobApply'
 import MyApplications from './Pages/MyApplication/MyApplications'
 import AddJobs from './Pages/AddJobs/AddJobs'
+import MyPostedJobs from './Pages/AddJobs/MyPostedJobs'
 
 
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='jobApply/:id' element={ <PrivateRoute><JobApply /></PrivateRoute> } />
         <Route path='jobApplication' element={ <PrivateRoute><MyApplications /></PrivateRoute> } />
         <Route path='addJob' element={ <PrivateRoute><AddJobs /></PrivateRoute> } />
+        <Route path='mypostedjobs' element={ <PrivateRoute><MyPostedJobs /></PrivateRoute> } />
         <Route path='blog' element={ <Blog /> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />
