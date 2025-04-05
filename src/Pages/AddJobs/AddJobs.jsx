@@ -22,7 +22,7 @@ const AddJobs = () => {
 
         // console.log(newJob);
 
-        fetch('', {
+        fetch('http://localhost:3000/jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -32,7 +32,7 @@ const AddJobs = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                e.target.reset
+                e.target.reset();
             })
     }
 
