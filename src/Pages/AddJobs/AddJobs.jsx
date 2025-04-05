@@ -7,7 +7,33 @@ const AddJobs = () => {
 
 
     const handleAddJobPost = (e) => {
-        e.preventdefault();
+        // e.preventdefault();
+        e.preventDefault(); 
+
+        const formData = new FormData(e.target);
+        const initialData = Object.fromEntries(formData.entries());
+        // console.log(initialData);
+
+        const { min, max, currency, ...newJob } = initialData;
+
+        newJob.salaryRange = { min, max, currency };
+        newJob.requirements = newJob.requirements.split('\n');
+        newJob.responsibilities = newJob.responsibilities.split('\n');
+
+        // console.log(newJob);
+
+        fetch('', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(newJob)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                e.target.reset
+            })
     }
 
 
@@ -56,14 +82,14 @@ const AddJobs = () => {
                             <label className=" text-gray-700 text-sm font-bold mb-2" htmlFor="title">
                                 HR Email
                             </label>
-                            <input type="text" name='hr_email' defaultValue={user?.email} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline read-only" placeholder="" required />
+                            <input type="email" name='hr_email' defaultValue={user?.email} className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline read-only" placeholder="" required />
                         </div>
                         {/* category */}
                         <div className="mb-2">
                             <label className=" text-gray-700 text-sm font-bold mb-2" htmlFor="title">
                                 Category
                             </label>
-                            <select className="select shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                            <select name='category' className="select shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                 <option disabled={true}>Pick a Job Category</option>
                                 <option>Engineering</option>
                                 <option>Marketing</option>
@@ -95,7 +121,7 @@ const AddJobs = () => {
                                 <input type="text" name='max' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Max" required />
                             </div>
                             <div className="mb-2">
-                                <select name='jobType' defaultValue="Pick a color" className="select shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                                <select name='currency' defaultValue="Pick a color" className="select shadow appearance-none border-2 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                                     <option disabled={true}>Pick a Currency</option>
                                     <option>BDT</option>
                                     <option>USD</option>
@@ -108,7 +134,7 @@ const AddJobs = () => {
                             <label className=" text-gray-700 text-sm font-bold mb-2" htmlFor="image">
                                 Company Logo URL
                             </label>
-                            <input type="url" name='logo' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Company Logo URL" required />
+                            <input type="url" name='company_logo' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Company Logo URL" required />
                         </div>
                         {/* responsibilities */}
                         <div className="mb-2">
