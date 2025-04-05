@@ -16,15 +16,16 @@ const AddBlog = () => {
         const title = form.title.value;
         const description = form.description.value;
         const image = form.image.value;
+        const date = form.date.value;
         // console.log(title, image, description)
 
         // user details 
-        const name = user?.displayName;
+        const author = user?.displayName;
         // const email = user?.email;
-        const photo = user?.photoURL;
+        const author_image = user?.photoURL;
 
 
-        const blog = { title, description, image, photo, name };
+        const blog = { title, description, image, date, author_image, author };
 
         fetch('http://localhost:3000/blogs', {
             method: 'POST',
@@ -59,6 +60,12 @@ const AddBlog = () => {
                                     Image URL
                                 </label>
                                 <input type="url" name='image' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Image URL" required />
+                            </div>
+                            <div className="mb-4">
+                                <label className=" text-gray-700 text-sm font-bold mb-2" htmlFor="title">
+                                    Date
+                                </label>
+                                <input type="date" name='date' className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Title" required />
                             </div>
                             <div className="mb-4">
                                 <label className=" text-gray-700 text-sm font-bold mb-2" htmlFor="description">
