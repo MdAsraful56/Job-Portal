@@ -13,6 +13,7 @@ import MyApplications from './Pages/MyApplication/MyApplications'
 import AddJobs from './Pages/AddJobs/AddJobs'
 import MyPostedJobs from './Pages/AddJobs/MyPostedJobs'
 import AllJobs from './Pages/AddJobs/AllJobs'
+import AddBlog from './Pages/Blog/AddBlog'
 
 
 
@@ -29,7 +30,8 @@ function App() {
         <Route path='addJob' element={ <PrivateRoute><AddJobs /></PrivateRoute> } />
         {/* <Route path='mypostedjobs' element={ <PrivateRoute><MyPostedJobs /></PrivateRoute> } /> */}
         <Route path='alljobs' element={ <PrivateRoute><AllJobs /></PrivateRoute> } />
-        <Route path='blog' element={ <Blog /> } />
+        <Route path='blog' element={ <Blog /> }  loader={ () => fetch('http://localhost:3000/blogs') } />
+        <Route path='addBlog' element={ <PrivateRoute><AddBlog /></PrivateRoute> } />
         <Route path='login' element={ <Login /> } />
         <Route path='register' element={ <Register /> } />
       </Route>
