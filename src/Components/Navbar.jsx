@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import AuthContext from '../Contexts/AuthContext/AuthContext';
 import userLogo from '../assets/user.png';
 import Lottie from 'lottie-react';
@@ -12,11 +12,20 @@ const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
 
     const navLink = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/alljobs'>All Jobs</Link></li>
+        <li><NavLink to='/'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >Home</NavLink></li>
+        <li><NavLink to='/alljobs'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >All Jobs</NavLink></li>
+        <li><NavLink to='/addJob'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >Add A Job</NavLink></li>
+        <li><NavLink to='/jobApplication'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >My Applications</NavLink></li>
+        <li><NavLink to='/blog'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >Blog</NavLink></li>
+        
+        
+        
+        
+        {/* <li><Link to='/alljobs'>All Jobs</Link></li>
         <li><Link to='/addJob'>Add A Job</Link></li>
         <li><Link to='/jobApplication'>My Applications</Link></li>
-        <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/blog'>Blog</Link></li> */}
+
             </>
 
 
@@ -68,10 +77,11 @@ const Navbar = () => {
                                 </div>
                             </> 
                             : 
-                            <>
-                                <Link to='/register' className="btn">Register</Link>
-                                <Link to='/login' className="btn">Login</Link>
-                            </>
+                            <div className='flex gap-2'>
+                                <NavLink to='/register'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >Register</NavLink>
+                                <NavLink to='/login'  className={({ isActive }) => `px-4 py-2 text-base rounded transition duration-200 ${isActive ? 'text-white bg-blue-600' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'}`}  >Login</NavLink>
+                                {/* <Link to='/login' className="btn">Login</Link> */}
+                            </div>
                     }
                 </div>
             </div>
