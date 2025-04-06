@@ -7,7 +7,7 @@ const MyPostedJobs = () => {
     const { user } = useContext(AuthContext);
 
     useEffect( () => {
-        fetch(`http://localhost:3000/jobs?email=${user?.email}`)
+        fetch(`https://job-protal-server-indol.vercel.app/jobs?email=${user?.email}`)
         .then(res => res.json())
         .then( data => {
             console.log(data)

@@ -23,7 +23,7 @@ const Home = () => {
     const [blogData, setBlogData] = useState([]);
     
     useEffect( () => {
-        fetch('http://localhost:3000/blogs')
+        fetch('https://job-protal-server-indol.vercel.app/blogs')
             .then(res => res.json())
             .then(data => setBlogData(data))
     } ,[])

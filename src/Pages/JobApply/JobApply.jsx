@@ -34,7 +34,7 @@ const JobApply = () => {
             userLinkedin: userLinkedin
         }
 
-        fetch('http://localhost:3000/jobApplications', {
+        fetch('https://job-protal-server-indol.vercel.app/jobApplications', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

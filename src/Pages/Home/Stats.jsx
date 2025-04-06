@@ -6,7 +6,7 @@ const Stats = () => {
     const [stats, setStats] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:3000/stats')
+        fetch('https://job-protal-server-indol.vercel.app/stats')
             .then(res => res.json())
             .then(data => {
                 setStats(data);

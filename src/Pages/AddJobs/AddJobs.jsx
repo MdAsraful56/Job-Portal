@@ -22,7 +22,7 @@ const AddJobs = () => {
 
         // console.log(newJob);
 
-        fetch('http://localhost:3000/jobs', {
+        fetch('https://job-protal-server-indol.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

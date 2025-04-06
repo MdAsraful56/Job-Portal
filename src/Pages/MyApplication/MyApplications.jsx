@@ -10,7 +10,7 @@ const MyApplications = () => {
     const [myJobs, setMyJobs] = useState([]);
 
     useEffect( () => {
-        fetch(`http://localhost:3000/jobApplication?email=${user.email}`)
+        fetch(`https://job-protal-server-indol.vercel.app/jobApplication?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyJobs(data))
     } ,[user.email])
@@ -20,8 +20,8 @@ const MyApplications = () => {
 
     const deleteItem = async (id) => {
         try {
-            // await axios.delete(`http://localhost:3000/jobApplications/${id}`);
-            const response = await fetch(`http://localhost:3000/jobApplications/${id}`, {
+            // await axios.delete(`https://job-protal-server-indol.vercel.app/jobApplications/${id}`);
+            const response = await fetch(`https://job-protal-server-indol.vercel.app/jobApplications/${id}`, {
                 method: "DELETE",
             });
 

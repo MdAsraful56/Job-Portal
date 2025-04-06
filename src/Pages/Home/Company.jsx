@@ -8,7 +8,7 @@ const Company = () => {
     const [companys, setCompanys] = useState([]);
 
     useEffect( () => {
-        fetch('http://localhost:3000/companys')
+        fetch('https://job-protal-server-indol.vercel.app/companys')
             .then(res => res.json())
             .then(data => setCompanys(data))
     } ,[])

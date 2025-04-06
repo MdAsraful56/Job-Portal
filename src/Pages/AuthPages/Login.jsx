@@ -6,7 +6,6 @@ import { FcGoogle } from "react-icons/fc";
 import loginLOttieData from '../../assets/lottie/login Animation.json'
 import AuthContext from './../../Contexts/AuthContext/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router';
-// import axios from 'axios';
 
 const Login = () => {
 
@@ -37,32 +36,13 @@ const Login = () => {
 
         loginUser(email, password)
             .then((result) => {
-                console.log("Full login result:", result); // 👈 Check this in console
-                if (result && result.user) {
-                console.log(result.user.email);
-                form.reset();
+                console.log(result.user);
                 navigate(from);
-
-                const user = { email: email };
-                fetch('http://localhost:3000/jwt', {
-                    method: 'POST',
-                    headers: {
-                    'content-type': 'application/json',
-                    },
-                    body: JSON.stringify(user),
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                    console.log(data);
-                    });
-                } else {
-                console.error("Login result missing user object.");
-                }
+                form.reset();
             })
             .catch((error) => {
                 console.log(error.message);
-            });
-
+            })
     }
 
 
