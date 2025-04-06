@@ -51,7 +51,7 @@ const Home = () => {
                 </div>
             </section> */}
 
-            <section className="">
+            <section className="-mt-28">
                 <div className="flex lg:flex-row flex-col items-center justify-between mt-52">
                     <Lottie animationData={hiring01} loop={true} className="lg:w-1/6 w-full lg:h-auto h-40  mx-auto" />
                     <div className="flex flex-row gap-5">
